@@ -14,6 +14,7 @@
   <link href="{{asset('public/css/modern-business.css')}}" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('public/css/common.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/top.css') }}">
 
   {{-- カレンダーのCSSファイル --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
@@ -219,15 +220,28 @@
   }
   body
   {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* fixed-top のナビバー分の余白を確保（ナビの高さに合わせて調整） */
+  padding-top: 120px;
   }
   .container
   {
     flex:1;
   } 
   </style>
+  <script>
+  // ensure body has top padding equal to fixed navbar height to avoid overlap
+  function adjustBodyPaddingForNavbar(){
+    var $nav = $('.navbar.fixed-top');
+    if($nav.length){
+      var h = $nav.outerHeight();
+      $('body').css('padding-top', h + 'px');
+    }
+  }
+  $(window).on('load resize', adjustBodyPaddingForNavbar);
+  </script>
   <style>
   {{-- カレンダーアイコンのスタイル --}}
   img.ui-datepicker-trigger

@@ -3,40 +3,71 @@
 @section('content')
 
 <div class="container">
-    <h1>Welcome to the EC Site</h1>
-    <p>Explore our products and enjoy your shopping experience!</p>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Product 1</h2>
-            <p>Description of Product 1</p>
+    <div class="top">
+        <div class="welcome">
+        <p>商品を探索し、ショッピング体験をお楽しみください！</p>
+
+        <!-- Bootstrap4 carousel with indicators; slides use dummy.png -->
+        <div id="welcomeCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <ol class="carousel-indicators">
+                <li data-target="#welcomeCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#welcomeCarousel" data-slide-to="1"></li>
+                <li data-target="#welcomeCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/site-image/dummy_one.png" class="d-block w-100" alt="スライド1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/site-image/dummy_two.png" class="d-block w-100" alt="スライド2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/site-image/dummy_three.png" class="d-block w-100" alt="スライド3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#welcomeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#welcomeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <div class="col-md-4">
-            <h2>Product 2</h2>
-            <p>Description of Product 2</p>
+
         </div>
-        <div class="col-md-4">
-            <h2>Product 3</h2>
-            <p>Description of Product 3</p>
+        <div class="notice-list">
+            <h3>お知らせ一覧</h3>
+            <ul class="notices">
+                <li>お知らせ 1 — セール情報</li>
+                <li>お知らせ 2 — 新規入荷</li>
+                <li>お知らせ 3 — メンテナンス案内</li>
+                <li>お知らせ 4 — 会員限定クーポン</li>
+            </ul>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h2>Featured Products</h2>
-            <p>Check out our featured products below.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Featured Product 1</h2>
-            <p>Description of Featured Product 1</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Featured Product 2</h2>
-            <p>Description of Featured Product 2</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Featured Product 3</h2>
-            <p>Description of Featured Product 3</p>
+
+        <div class="new-products">
+            <h3>新着商品一覧</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="/product-image/dummy.png" alt="新着商品1">
+                    <p class="p-title">新着商品 1</p>
+                </div>
+                <div class="product">
+                    <img src="/product-image/dummy.png" alt="新着商品2">
+                    <p class="p-title">新着商品 2</p>
+                </div>
+                <div class="product">
+                    <img src="/product-image/dummy.png" alt="新着商品3">
+                    <p class="p-title">新着商品 3</p>
+                </div>
+                <div class="product">
+                    <img src="/product-image/dummy.png" alt="新着商品4">
+                    <p class="p-title">新着商品 4</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+@endsection
