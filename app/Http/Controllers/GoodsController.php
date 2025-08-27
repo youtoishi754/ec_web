@@ -33,19 +33,19 @@ class GoodsController extends BaseController
         }
 
         // 日付存在チェック
-        if ($request->s_up_year != "" && $request->s_up_month != "" && $request->s_up_month != "")
+        if ($request->s_up_year != "" && $request->s_up_month != "" && $request->s_up_day != "")
         {
             $search_options['s_up_date'] = $request->s_up_year . '-' . $request->s_up_month . '-' . $request->s_up_day;
         }
-        if ($request->e_up_year != "" && $request->e_up_month != "" && $request->e_up_month != "")
+        if ($request->e_up_year != "" && $request->e_up_month != "" && $request->e_up_day != "")
         {
             $search_options['e_up_date'] = $request->e_up_year . '-' . $request->e_up_month . '-' . $request->e_up_day;
         }
-        if ($request->s_ins_year != "" && $request->s_ins_month != "" && $request->s_ins_month != "")
+        if ($request->s_ins_year != "" && $request->s_ins_month != "" && $request->s_ins_day != "")
         {
             $search_options['s_ins_date'] = $request->s_ins_year . '-' . $request->s_ins_month . '-' . $request->s_ins_day;
         }
-        if ($request->e_ins_year != "" && $request->e_ins_month != "" && $request->e_ins_month != "") 
+        if ($request->e_ins_year != "" && $request->e_ins_month != "" && $request->e_ins_day != "") 
         {
             $search_options['e_ins_date'] = $request->e_ins_year . '-' . $request->e_ins_month . '-' . $request->e_ins_day;
         }

@@ -1,4 +1,7 @@
 <?php
+/**
+ * DBManager.phpはオートローダーによって定義されているため、どこからでも呼び出すことができます。
+ */
 
 /*******************************************
  * 商品情報を一覧を取得する
@@ -6,6 +9,7 @@
 function getGoodsList($search_options = null)
 {
     $params = array();
+    
 
     if($search_options != null)
     {
@@ -68,39 +72,41 @@ function getGoodsList($search_options = null)
         }
     }
 
-    $data = DB::table('t_goods')
-    ->whereraw($sql,$params);
+    $data = DB::table('t_goods');
+    //->whereraw($sql,$params);
     
     // ソートオプションの適用
-    if(array_key_exists('sort_by', $search_options) && array_key_exists('sort_direction', $search_options)) {
-        $sortColumn = '';
-        
-        // ソート対象のカラムマッピング
-        switch($search_options['sort_by']) {
-            case 'price':
-                $sortColumn = 'goods_price';
-                break;
-            case 'stock':
-                $sortColumn = 'goods_stock';
-                break;
-            case 'update':
-                $sortColumn = 'up_date';
-                break;
-            case 'insert':
-                $sortColumn = 'ins_date';
-                break;
-            default:
-                $sortColumn = 'id'; // デフォルトソート
+    if($search_options!=null){
+        if(array_key_exists('sort_by', $search_options) && array_key_exists('sort_direction', $search_options)) {
+            $sortColumn = '';
+            
+            // ソート対象のカラムマッピング
+            switch($search_options['sort_by']) {
+                case 'price':
+                    $sortColumn = 'goods_price';
+                    break;
+                case 'stock':
+                    $sortColumn = 'goods_stock';
+                    break;
+                case 'update':
+                    $sortColumn = 'up_date';
+                    break;
+                case 'insert':
+                    $sortColumn = 'ins_date';
+                    break;
+                default:
+                    $sortColumn = 'id'; // デフォルトソート
+            }
+            
+            $sortDirection = $search_options['sort_direction'] === 'desc' ? 'desc' : 'asc';
+            $data = $data->orderBy($sortColumn, $sortDirection);
+        } else {
+            // デフォルトのソート順（IDの昇順）
+            $data = $data->orderBy('id', 'asc');
         }
-        
-        $sortDirection = $search_options['sort_direction'] === 'desc' ? 'desc' : 'asc';
-        $data = $data->orderBy($sortColumn, $sortDirection);
-    } else {
-        // デフォルトのソート順（IDの昇順）
-        $data = $data->orderBy('id', 'asc');
     }
     
-    $data = $data->paginate(10);
+    $data = $data->paginate(12);
     
     return $data;
 }

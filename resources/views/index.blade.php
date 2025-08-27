@@ -37,7 +37,7 @@
 
         </div>
         <div class="notice-list">
-            <h3>お知らせ一覧</h3>
+            <h3>お知らせ</h3>
             <ul class="notices">
                 <li>お知らせ 1 — セール情報</li>
                 <li>お知らせ 2 — 新規入荷</li>
@@ -47,7 +47,8 @@
         </div>
 
         <div class="new-products">
-            <h3>新着商品一覧</h3>
+            <h3>新着商品</h3>
+            <a href="#">新着商品一覧へ</a>
             <div class="products">
                 <div class="product">
                     <img src="/product-image/dummy.png" alt="新着商品1">

@@ -14,7 +14,8 @@
   <link href="{{asset('public/css/modern-business.css')}}" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('public/css/common.css') }}">
-  <link rel="stylesheet" href="{{ asset('public/css/top.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/goods/top.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/css/goods/list.css') }}">
 
   {{-- カレンダーのCSSファイル --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
@@ -271,8 +272,8 @@
         </div>
       </div>
       <div class="w-100 d-flex mt-2">
-        <a href="#" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">トップ</a>
-        <a href="#" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">商品一覧</a>
+        <a href="{{route('index')}}" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">トップ</a>
+        <a href="{{route('goods_list')}}" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">商品一覧</a>
         <a href="#" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">お問い合わせ</a>
         <a href="#" class="btn btn-outline-light flex-fill mx-1 d-flex align-items-center justify-content-center">よくある質問</a>
       </div>

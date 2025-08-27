@@ -1,0 +1,23 @@
+/* Styles for goods list page */
+
+/* Base container.list styles scope */
+.container .list {
+  /* 必要に応じてリスト領域の余白調整 */
+  padding-top: 8px;
+}
+
+/* 商品名検索入力欄を広げる（ソート欄の右側に表示される想定） */
+.container .list input[name="goods_name"] {
+  min-width: 320px;
+  max-width: 800px;
+  width: 40%;
+  box-sizing: border-box;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+  .container .list input[name="goods_name"] {
+    width: 60%;
+    min-width: 160px;
+  }
+}

@@ -26,5 +26,5 @@ Route::get('/', 'GoodsController')->name('index');                         //ト
 // Route::get('/', 'ContactController')->name('contact');                         //問い合わせ
 // Route::post('/contact', 'ContactSubmitController')->name('contact_submit'); //問い合わせ送信
 // Route::get('/contact/thanks', 'ContactThanksController')->name('contact_thanks'); //問い合わせ完了
-// Route::get('/goodslist', 'GoodslistController')->name('goodslist'); //商品一覧
+ Route::get('/goods/list', 'Goods\GoodsListController')->name('goods_list'); //商品一覧
 // Route::get('/goodslist/{id}', 'GoodslistShowController')->name('goodslist_show'); //商品詳細
