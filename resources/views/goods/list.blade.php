@@ -18,28 +18,32 @@
         <option value="insert" @if(request('sort_by') === 'insert') selected @endif>販売開始日時</option>
         <option value="price"  @if(request('sort_by') === 'price')  selected @endif>価格</option>
       </select>
-
       <select name="sort_direction" class="form-control mr-2">
         <option value="desc" @if(request('sort_direction') === 'desc') selected @endif>降順（新しい順 / 高い順）</option>
         <option value="asc"  @if(request('sort_direction') === 'asc')  selected @endif>昇順（古い順 / 安い順）</option>
       </select>
-
       {{-- 商品名検索--}}
       <div class="ml-2 d-flex align-items-center">
         <label for="goods_name" class="sr-only">商品名検索</label>
-        <input
-          type="text"
-          id="goods_name"
-          name="goods_name"
-          value="{{ request('goods_name') }}"
-          class="form-control mr-2"
-          placeholder="商品名で検索">
+        <input type="text" id="goods_name" name="goods_name" value="{{ request('goods_name') }}" class="form-control mr-2"placeholder="商品名で検索">
       </div>
-
       <button type="submit" class="btn btn-primary">適用</button>
     </form>
 
-    {{ $goods_list->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+    <!-- ページャーサマリー（ソート欄の下） -->
+    <div class="row mt-2 mb-3 align-items-center">
+      <div class="col-md-3 text-muted">
+        表示 
+        @if(isset($goods_list) && $goods_list instanceof \Illuminate\Pagination\LengthAwarePaginator)
+            {{ $goods_list->firstItem() }} - {{ $goods_list->lastItem() }} / {{ $goods_list->total() }} 件
+        @else
+            0 - 0 / 0 件
+        @endif
+      </div>
+      <div class="col-md-6 text-right">
+        {{ $goods_list->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+      </div>
+    </div>
     <div class="row">
       {{-- 商品リスト --}}  
       @foreach ($goods_list as $goods)

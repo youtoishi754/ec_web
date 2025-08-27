@@ -22,11 +22,18 @@ function getGoodsList($search_options = null)
             $params[] = "%".$search_options['goods_number']."%"; 
         }
 
-        //商品名
+        //商品ID
         if(array_key_exists('goods_id',$search_options) && $search_options['goods_id'] != "" )
         {
             $sql .= "AND id = ? ";
             $params[] = $search_options['goods_id'];
+        }
+
+        //商品名
+        if(array_key_exists('goods_name',$search_options) && $search_options['goods_name'] != "" )
+        {
+            $sql .= "AND goods_name LIKE ? ";
+            $params[] = "%".$search_options['goods_name']."%";
         }
 
         //金額(以下)
@@ -71,9 +78,15 @@ function getGoodsList($search_options = null)
             $params[] = $search_options['e_ins_date'];
         }
     }
+    if($params!=null){
+        $data = DB::table('t_goods')
+        ->whereraw($sql,$params);
+    }
+    else
+    {
+        $data = DB::table('t_goods');
+    }
 
-    $data = DB::table('t_goods');
-    //->whereraw($sql,$params);
     
     // ソートオプションの適用
     if($search_options!=null){
