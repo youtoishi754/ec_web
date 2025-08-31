@@ -264,7 +264,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="ml-auto d-flex align-items-center">
-          <a href="{{-- route('register') --}}" class="btn btn-outline-light mr-2">新規登録</a>
+          <a href="{{ route('pre_register') }}" class="btn btn-outline-light mr-2">新規登録</a>
           <a href="{{-- route('login') --}}" class="btn btn-outline-light mr-2">ログイン</a>
           <a href="{{-- route('cart') --}}" class="btn btn-outline-light">
             <i class="fas fa-shopping-cart"></i> カート

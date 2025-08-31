@@ -28,3 +28,6 @@ Route::get('/', 'GoodsController')->name('index');                         //ト
 // Route::get('/contact/thanks', 'ContactThanksController')->name('contact_thanks'); //問い合わせ完了
  Route::get('/goods/list', 'Goods\GoodsListController')->name('goods_list'); //商品一覧
 // Route::get('/goodslist/{id}', 'GoodslistShowController')->name('goodslist_show'); //商品詳細
+// メール仮登録（最初にメールアドレスだけ登録する）
+Route::get('/pre-register', 'Auth\PreRegistrationController@showForm')->name('pre_register');
+Route::post('/pre-register', 'Auth\PreRegistrationController@store')->name('pre_register_do');
