@@ -31,3 +31,6 @@ Route::get('/', 'GoodsController')->name('index');                         //ト
 // メール仮登録（最初にメールアドレスだけ登録する）
 Route::get('/pre-register', 'Auth\PreRegistrationController@showForm')->name('pre_register');
 Route::post('/pre-register', 'Auth\PreRegistrationController@store')->name('pre_register_do');
+// 仮登録の確認リンク／本登録
+Route::get('/pre-register/confirm/{token}', 'Auth\\PreRegistrationController@confirm')->name('pre_register_confirm');
+Route::post('/pre-register/complete', 'Auth\\PreRegistrationController@complete')->name('pre_register_complete');

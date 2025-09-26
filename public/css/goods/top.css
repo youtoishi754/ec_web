@@ -32,7 +32,7 @@
 }
 #welcomeCarousel .carousel-item img {
     width: 100%;
-    height: 320px; /* 固定高さで見栄えを揃える */
+    height: auto;
     object-fit: cover;
 }
 #welcomeCarousel .carousel-indicators li {
