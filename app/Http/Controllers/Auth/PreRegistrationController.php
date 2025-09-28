@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -10,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PreRegistrationMail;
 
 class PreRegistrationController extends BaseController
 {
@@ -50,6 +53,9 @@ class PreRegistrationController extends BaseController
                 'updated_at' => now(),
             ]);
         }
+
+          // メール送信
+         Mail::to($request->email)->send(new PreRegistrationMail($token));
 
         // TODO: send confirmation email with token link
 

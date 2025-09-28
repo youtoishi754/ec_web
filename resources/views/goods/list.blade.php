@@ -35,9 +35,9 @@
       <div class="col-md-3 text-muted">
         表示 
         @if(isset($goods_list) && $goods_list instanceof \Illuminate\Pagination\LengthAwarePaginator)
-            {{ $goods_list->firstItem() }} - {{ $goods_list->lastItem() }} / {{ $goods_list->total() }} 件
+            {{ $goods_list->firstItem() }} - {{ $goods_list->lastItem() }} /全 {{ $goods_list->total() }} 件
         @else
-            0 - 0 / 0 件
+            0 - 0 /全 0 件
         @endif
       </div>
       <div class="col-md-6 text-right">
